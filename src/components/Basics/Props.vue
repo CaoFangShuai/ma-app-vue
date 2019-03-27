@@ -1,5 +1,6 @@
 <template>
 	<div>
+		<h3>属性</h3>
 		name: {{ name }}
 		<br />
 		type: {{ type }}
