@@ -15,6 +15,12 @@
         <div>
             <TwoWay></TwoWay>
         </div>
+        <div>
+            <dummy-dom></dummy-dom>
+        </div>
+        <div>
+            <props-and-data></props-and-data>
+        </div>
     </div>
 </template>
 
@@ -22,13 +28,17 @@
     import TodoList from './components/TodoList.vue'
     import AllBasics from './components/Basics/AllBasics.vue'
     import TwoWay from './components/Twoway/index.vue'
+    import DummyDom from './components/DummyDom/index.vue'
+    import  PropsAndData from './components/PropsAndData/index'
 
     export default {
         name: 'app',
         components: {
             "TodoList": TodoList,
             AllBasics,
-            TwoWay
+            TwoWay,
+            DummyDom,
+            PropsAndData
         },
         data() {
             return {
