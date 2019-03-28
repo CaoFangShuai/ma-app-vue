@@ -16,6 +16,7 @@
 <script>
 	export default {
 		name: "PropsDemo",
+		// inheritAttrs:false,
 		props: {
 			name: String,
 			type: {
