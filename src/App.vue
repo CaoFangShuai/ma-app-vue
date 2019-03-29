@@ -21,6 +21,9 @@
         <div>
             <props-and-data></props-and-data>
         </div>
+	    <div>
+		    <watch-and-computed />
+	    </div>
     </div>
 </template>
 
@@ -30,7 +33,7 @@
     import TwoWay from './components/Twoway/index.vue'
     import DummyDom from './components/DummyDom/index.vue'
     import  PropsAndData from './components/PropsAndData/index'
-
+    import  WatchAndComputed from './components/WatchAndComputed/index'
     export default {
         name: 'app',
         components: {
@@ -38,7 +41,8 @@
             AllBasics,
             TwoWay,
             DummyDom,
-            PropsAndData
+            PropsAndData,
+	        WatchAndComputed
         },
         data() {
             return {
