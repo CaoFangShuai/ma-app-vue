@@ -1,5 +1,6 @@
 <template>
     <div>
+        <h1>虚拟DOM怎么更新</h1>
         <ChildrenA1 />
         <ChildrenA2 />
         <ChildrenA3 />

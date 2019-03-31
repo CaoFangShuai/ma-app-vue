@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>如何触发组件的更新</h3>
+        <h1>如何触发组件的更新</h1>
         <p>
             <button @click="handleChangeName">改变name</button>
             <button @click="handleChangeInfo">改变info</button>

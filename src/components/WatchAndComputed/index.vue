@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h3>计算属性和侦听器</h3>
+		<h1>计算属性和侦听器</h1>
 		<computed />
 		<watch />
 		<div>

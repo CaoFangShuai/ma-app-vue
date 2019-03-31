@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>双向绑定单向数据流</h3>
+        <h1>双向绑定单向数据流</h1>
         <PersonalInfo v-model="phoneInfo" :zip-code="zipCode"  @update:email="val => (zipCode = val)"></PersonalInfo>
         <PersonalInfo :phone-info="phoneInfo" :zip-code="zipCode"    @change="val => (phoneInfo = val)" @update:email="val => (zipCode = val)"></PersonalInfo>
         phoneInfo： {{ phoneInfo }}

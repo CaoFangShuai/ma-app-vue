@@ -24,6 +24,9 @@
 	    <div>
 		    <watch-and-computed />
 	    </div>
+        <div>
+            <life-cycle></life-cycle>
+        </div>
     </div>
 </template>
 
@@ -34,6 +37,7 @@
     import DummyDom from './components/DummyDom/index.vue'
     import  PropsAndData from './components/PropsAndData/index'
     import  WatchAndComputed from './components/WatchAndComputed/index'
+    import LifeCycle from './components/LifeCycle/index'
     export default {
         name: 'app',
         components: {
@@ -42,7 +46,8 @@
             TwoWay,
             DummyDom,
             PropsAndData,
-	        WatchAndComputed
+	        WatchAndComputed,
+            LifeCycle
         },
         data() {
             return {
