@@ -1,6 +1,6 @@
 <template>
 <div>
-    {{log("render")}}
+    {{log("渲染器渲染render")}}
     {{now}}
     <button @click="start1">{{ start ? "停止" : "开始" }}</button>
 </div>
@@ -10,12 +10,13 @@
     export default {
         name: "Clock",
         data() {
-            console.log("data");
+            console.log("加载数据");
             this.moment =moment;
             this.log = window.console.log;
             return {
                 start: false,
                 now: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
+                message:'hello vue'
             }
         },
         watch:{
@@ -24,26 +25,64 @@
             }
         },
         beforeCreate(){
-          console.log("beforeCreate");
+            console.group('beforeCreate 创建前状态===============》');
+            console.log("%c%s", "color:red" , "el     : " , this.$el); //undefined
+            console.log("%c%s", "color:red","data   : " , this.$data); //undefined
+            console.log("%c%s", "color:red","message: " , this.message)
         },
         created(){
-            console.log("created")
+            console.group('created 创建完毕状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el); //undefined
+            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
+            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
+        },
+        beforeMount: function () {
+            console.group('beforeMount 挂载前状态===============》');
+            console.log("%c%s", "color:red","el     : " , (this.$el)); //已被初始化
+            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
+            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
         },
         mounted(){
-            console.log("mounted挂载完成时钟开始走");
+            console.group('mounted 挂载结束状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el); //已被初始化
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
+            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
             this.startClock();
         },
         beforeUpdate() {
-            console.log("beforeUpdate");
+            console.group('beforeUpdate 更新前状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " , this.$data);
+            console.log("%c%s", "color:red","message: " , this.message);
+            console.log("数据更新之前");
         },
         updated() {
-            console.log("updated");
+            console.log("数据更新之后");
         },
         beforeDestroy(){
-            console.log("beforeDestroy")
+            console.group('updated 更新完成状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " , this.$data);
+            console.log("%c%s", "color:red","message: " , this.message);
+            console.log("页面销毁之前")
+        },
+        beforeDestroy: function () {
+            console.group('beforeDestroy 销毁前状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " , this.$data);
+            console.log("%c%s", "color:red","message: " , this.message);
         },
         destroyed(){
-            console.log("destroyed")
+            console.group('destroyed 销毁完成状态===============》');
+            console.log("%c%s", "color:red","el     : " , this.$el);
+            console.log(this.$el);
+            console.log("%c%s", "color:red","data   : " , this.$data);
+            console.log("%c%s", "color:red","message: " , this.message)
+            console.log("页面销毁之后")
         },
         methods:{
             startClock(){

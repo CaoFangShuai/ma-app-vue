@@ -27,6 +27,9 @@
         <div>
             <life-cycle></life-cycle>
         </div>
+        <div>
+            <directive />
+        </div>
     </div>
 </template>
 
@@ -38,6 +41,7 @@
     import  PropsAndData from './components/PropsAndData/index'
     import  WatchAndComputed from './components/WatchAndComputed/index'
     import LifeCycle from './components/LifeCycle/index'
+    import directive from './components/directive/index'
     export default {
         name: 'app',
         components: {
@@ -47,7 +51,8 @@
             DummyDom,
             PropsAndData,
 	        WatchAndComputed,
-            LifeCycle
+            LifeCycle,
+            directive
         },
         data() {
             return {
