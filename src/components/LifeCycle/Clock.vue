@@ -25,25 +25,25 @@
             }
         },
         beforeCreate(){
-            console.group('beforeCreate 创建前状态===============》');
+            console.group('beforeCreate 实例创建前状态===============》');
             console.log("%c%s", "color:red" , "el     : " , this.$el); //undefined
             console.log("%c%s", "color:red","data   : " , this.$data); //undefined
             console.log("%c%s", "color:red","message: " , this.message)
         },
         created(){
-            console.group('created 创建完毕状态===============》');
+            console.group('created 实例创建完毕状态===============》');
             console.log("%c%s", "color:red","el     : " , this.$el); //undefined
             console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
             console.log("%c%s", "color:red","message: " , this.message); //已被初始化
         },
         beforeMount: function () {
-            console.group('beforeMount 挂载前状态===============》');
+            console.group('beforeMount 实例挂载前状态===============》');
             console.log("%c%s", "color:red","el     : " , (this.$el)); //已被初始化
             console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
             console.log("%c%s", "color:red","message: " , this.message); //已被初始化
         },
         mounted(){
-            console.group('mounted 挂载结束状态===============》');
+            console.group('mounted 实例挂载结束状态===============》');
             console.log("%c%s", "color:red","el     : " , this.$el); //已被初始化
             console.log(this.$el);
             console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化

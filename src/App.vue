@@ -30,6 +30,9 @@
         <div>
             <directive />
         </div>
+	    <div>
+		    <provide-inject />
+	    </div>
     </div>
 </template>
 
@@ -42,6 +45,7 @@
     import  WatchAndComputed from './components/WatchAndComputed/index'
     import LifeCycle from './components/LifeCycle/index'
     import directive from './components/directive/index'
+    import ProvideInject from './components/ProvideInject'
     export default {
         name: 'app',
         components: {
@@ -52,7 +56,8 @@
             PropsAndData,
 	        WatchAndComputed,
             LifeCycle,
-            directive
+            directive,
+	        ProvideInject
         },
         data() {
             return {
