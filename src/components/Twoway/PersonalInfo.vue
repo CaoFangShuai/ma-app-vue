@@ -4,8 +4,9 @@
             <option value="+86">+86</option>
             <option value="+60">+60</option>
         </select>
-        <input type="number" :value="phoneInfo.phone" @change="TestPhone" placeholder="手机号" @input="handlePhoneInput">
+        <input type="number" :value="phoneInfo.phone"  placeholder="手机号" @input="handlePhoneInput">
         <input type="email" :value="zipCode" placeholder="邮编" @input="handleEmailInput">
+        <span v-if="showMessage" style="color: red;">{{ message }}</span>
     </div>
 </template>
 
@@ -18,12 +19,20 @@
 	    },
         props:{
             phoneInfo:Object,
-            zipCode:String
+            zipCode:String,
+            validate: Function,
+            required: Boolean,
+            message:String
         },
         data(){
             return {
-
+                showMessage: false
             }
+        },
+        watch:{
+           "phoneInfo.phone"(val){
+               this.handleValidate(val)
+           }
         },
 	    methods:{
 		    handleAreaCodeChange(e){
@@ -33,7 +42,6 @@
 				})
 		    },
 		    handlePhoneInput(e){
-
 			    this.$emit("change",{
 				    ...this.phoneInfo,
 				    phone: e.target.value
@@ -42,25 +50,10 @@
 		    handleEmailInput(e){
 		    	this.$emit("update:email",e.target.value)
 		    },
-		    TestPhone(e){
-
-			    if(this.checkPhone(e.target.value)){
-				    alert("手机号码通过检测");
-			    }else{
-				    alert("手机号码有误，请重填");
-				    this.phoneInfo.phone='';
-			    }
-		    },
-		    checkPhone(phone){
-
-			    if(!(/^1(3|4|5|7|8)\d{9}$/.test(phone))){
-
-				    return false;
-			    }else{
-
-			    	return  true;
-			    }
-		    }
+            handleValidate(val) {
+                const res = this.validate(val);
+                this.showMessage = !res;
+            }
 	    }
     }
 </script>

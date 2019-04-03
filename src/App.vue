@@ -13,6 +13,9 @@
             <all-basics></all-basics>
         </div>
         <div>
+            <all-basics-w />
+        </div>
+        <div>
             <TwoWay></TwoWay>
         </div>
         <div>
@@ -39,6 +42,7 @@
 <script>
     import TodoList from './components/TodoList.vue'
     import AllBasics from './components/Basics/AllBasics.vue'
+    import AllBasicsW from './components/Basics_w/index.vue'
     import TwoWay from './components/Twoway/index.vue'
     import DummyDom from './components/DummyDom/index.vue'
     import  PropsAndData from './components/PropsAndData/index'
@@ -51,6 +55,7 @@
         components: {
             "TodoList": TodoList,
             AllBasics,
+            AllBasicsW,
             TwoWay,
             DummyDom,
             PropsAndData,
@@ -80,7 +85,7 @@
 
 <style>
     #app {
-        width: 500px;
+        width: 1000px;
         margin: 0 auto;
         text-align: center;
         padding-bottom: 40px;
