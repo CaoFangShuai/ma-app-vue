@@ -33,7 +33,7 @@
                 //     number:1
                 // },
                 list:[],
-               instancelist:[1,2,3,4,5,6,7]
+               instancelist:[1,2,3]
             }
         },
         methods:{
@@ -47,7 +47,9 @@
 
             },
             handleChangeList(){
-                this.list.push(1,2,4);
+                this.list.push(4);
+                // this.list.pop(1);
+                // this.list.shift(5)
                 console.log("this.list 发生了变化，触发了子组件更新", this.list);
             },
             handleChangeInstancelist(){

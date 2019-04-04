@@ -19,7 +19,13 @@
             <TwoWay></TwoWay>
         </div>
         <div>
+            <tow-way_w></tow-way_w>
+        </div>
+        <div>
             <dummy-dom></dummy-dom>
+        </div>
+        <div>
+            <dummy-dom_w></dummy-dom_w>
         </div>
         <div>
             <props-and-data></props-and-data>
@@ -50,6 +56,8 @@
     import LifeCycle from './components/LifeCycle/index'
     import directive from './components/directive/index'
     import ProvideInject from './components/ProvideInject'
+    import DummyDom_w from  './components/DummyDom_w'
+    import TowWay_w from  './components/TowWay_w'
     export default {
         name: 'app',
         components: {
@@ -57,12 +65,14 @@
             AllBasics,
             AllBasicsW,
             TwoWay,
+            TowWay_w,
             DummyDom,
             PropsAndData,
 	        WatchAndComputed,
             LifeCycle,
             directive,
-	        ProvideInject
+	        ProvideInject,
+            DummyDom_w
         },
         data() {
             return {
