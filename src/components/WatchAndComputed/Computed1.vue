@@ -21,11 +21,11 @@
 				return this.firstName + " " + this.lastName;
 			}
 		},
-		watch: {
+/*		watch: {
 			fullName: function(val, oldVal) {
 				console.log("new: %s, old: %s", val, oldVal);
 			}
-		}
+		}*/
 	}
 </script>
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h4><p>习题二</p>this.$emit的返回值是什么</h4>
+        <h4 style="color: red;"><p>习题二</p>this.$emit的返回值是什么</h4>
         <p>name: {{ name || "--" }}</p>
         <div>
             <p><input :value="name" @change="handleChange"></p>

@@ -24,7 +24,7 @@
                 },
                 inserted(el, binding) {
                     el.appendChild(document.createTextNode(binding.value));
-                    console.log("插入", el, binding);
+                    console.log("插入自定义组件", el, binding);
                 },
                 update() {
                     console.log("更新自定义组件");

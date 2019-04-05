@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>为什么不能用index作为key</h1>
+        <h1 style="color: red;">为什么不能用index作为key</h1>
         <ChildrenA></ChildrenA>
         <ChildrenB></ChildrenB>
     </div>

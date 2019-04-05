@@ -37,11 +37,17 @@
             <life-cycle></life-cycle>
         </div>
         <div>
+            <life-cycle_w></life-cycle_w>
+        </div>
+        <div>
             <directive />
         </div>
 	    <div>
 		    <provide-inject />
 	    </div>
+        <div>
+            <vue-and-jsx />
+        </div>
     </div>
 </template>
 
@@ -58,6 +64,8 @@
     import ProvideInject from './components/ProvideInject'
     import DummyDom_w from  './components/DummyDom_w'
     import TowWay_w from  './components/TowWay_w'
+    import LifeCycle_w from './components/LifeCycle_w/index'
+    import VueAndJsx from './components/VueAndJsx'
     export default {
         name: 'app',
         components: {
@@ -72,7 +80,9 @@
             LifeCycle,
             directive,
 	        ProvideInject,
-            DummyDom_w
+            DummyDom_w,
+            LifeCycle_w,
+            VueAndJsx
         },
         data() {
             return {

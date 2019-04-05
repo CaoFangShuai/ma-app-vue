@@ -1,103 +1,91 @@
 <template>
-<div>
-    {{log("渲染器渲染render")}}
-    {{now}}
-    <button @click="start1">{{ start ? "停止" : "开始" }}</button>
-</div>
+    <div>
+        {{group("渲染器渲染render=======>",this.$el,this.$data)}}
+        {{now}}
+        <button @click="start1">{{ start ? "停止" : "开始" }}</button>
+    </div>
 </template>
 <script>
     import moment from "moment";
+
     export default {
         name: "Clock",
         data() {
-            console.log("加载数据");
-            this.moment =moment;
+            console.group("加载数据=====>");
+            console.log("%c%s", "color:red", "el     : ", this.$el); //undefined
+            console.log("%c%s", "color:red", "data   : ", this.$data); //undefined
+            this.moment = moment;
+            this.group = window.console.group;
             this.log = window.console.log;
             return {
                 start: false,
                 now: moment(new Date()).format("YYYY-MM-DD HH:mm:ss"),
-                message:'hello vue'
+                message: 'hello vue'
             }
         },
-        watch:{
-            start(){
+        watch: {
+            start() {
                 this.startClock();
             }
         },
-        beforeCreate(){
+        beforeCreate() {
             console.group('beforeCreate 实例创建前状态===============》');
-            console.log("%c%s", "color:red" , "el     : " , this.$el); //undefined
-            console.log("%c%s", "color:red","data   : " , this.$data); //undefined
-            console.log("%c%s", "color:red","message: " , this.message)
+            console.log("%c%s", "color:red", "el     : ", this.$el); //undefined
+            console.log("%c%s", "color:red", "data   : ", this.$data); //undefined
         },
-        created(){
+        created() {
             console.group('created 实例创建完毕状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el); //undefined
-            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
-            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
+            console.log("%c%s", "color:red", "el     : ", this.$el); //undefined
+            console.log("%c%s", "color:red", "data   : ", this.$data); //已被初始化
+            //已被初始化
         },
         beforeMount: function () {
             console.group('beforeMount 实例挂载前状态===============》');
-            console.log("%c%s", "color:red","el     : " , (this.$el)); //已被初始化
-            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
-            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
+            console.log("%c%s", "color:red", "el     : ", (this.$el)); //已被初始化
+            console.log("%c%s", "color:red", "data   : ", this.$data); //已被初始化
+            //已被初始化
         },
-        mounted(){
+        mounted() {
             console.group('mounted 实例挂载结束状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el); //已被初始化
-            console.log(this.$el);
-            console.log("%c%s", "color:red","data   : " , this.$data); //已被初始化
-            console.log("%c%s", "color:red","message: " , this.message); //已被初始化
+            console.log("%c%s", "color:red", "el     : ", this.$el); //已被初始化
+            console.log("%c%s", "color:red", "data   : ", this.$data); //已被初始化
+            //已被初始化
             this.startClock();
         },
         beforeUpdate() {
-            console.group('beforeUpdate 更新前状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el);
-            console.log(this.$el);
-            console.log("%c%s", "color:red","data   : " , this.$data);
-            console.log("%c%s", "color:red","message: " , this.message);
-            console.log("数据更新之前");
+            console.group('beforeUpdate 数据更新前状态===============》');
+            console.log("%c%s", "color:red", "el     : ", this.$el);
+            console.log("%c%s", "color:red", "data   : ", this.$data);
         },
         updated() {
-            console.log("数据更新之后");
+            console.group("updated 数据更新完成状态=====>");
+            console.log("%c%s", "color:red", "el     : ", this.$el);
+            console.log("%c%s", "color:red", "data   : ", this.$data);
         },
-        beforeDestroy(){
-            console.group('updated 更新完成状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el);
-            console.log(this.$el);
-            console.log("%c%s", "color:red","data   : " , this.$data);
-            console.log("%c%s", "color:red","message: " , this.message);
-            console.log("页面销毁之前")
+        beforeDestroy() {
+            console.group('beforeDestroy页面销毁之前状态===============》');
+            console.log("%c%s", "color:red", "el     : ", this.$el);
+            console.log("%c%s", "color:red", "data   : ", this.$data);
         },
-        beforeDestroy: function () {
-            console.group('beforeDestroy 销毁前状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el);
-            console.log(this.$el);
-            console.log("%c%s", "color:red","data   : " , this.$data);
-            console.log("%c%s", "color:red","message: " , this.message);
-        },
-        destroyed(){
+        destroyed() {
             console.group('destroyed 销毁完成状态===============》');
-            console.log("%c%s", "color:red","el     : " , this.$el);
-            console.log(this.$el);
-            console.log("%c%s", "color:red","data   : " , this.$data);
-            console.log("%c%s", "color:red","message: " , this.message)
-            console.log("页面销毁之后")
+            console.log("%c%s", "color:red", "el     : ", this.$el);
+            console.log("%c%s", "color:red", "data   : ", this.$data);
         },
-        methods:{
-            startClock(){
+        methods: {
+            startClock() {
                 clearInterval(this.clockInterval);
-                if(this.start){
-                    this.clockInterval=setInterval(()=>{
-                        this.now=moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
-                    },1000)
+                if (this.start) {
+                    this.clockInterval = setInterval(() => {
+                        this.now = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
+                    }, 1000)
                 }
             },
-            start1(){
-                if(this.start){
-                    this.start=false;
-                }else{
-                    this.start=true;
+            start1() {
+                if (this.start) {
+                    this.start = false;
+                } else {
+                    this.start = true;
                 }
             }
         }

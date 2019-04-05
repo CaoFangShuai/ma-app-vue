@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>习题对手机号做验证</h1>
+        <h1 style="color: red;">习题对手机号做验证</h1>
         <personakinfo v-model="phone"
                       :validate="validate"
                       message="手机号为空或不合法"

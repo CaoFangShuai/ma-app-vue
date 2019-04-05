@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h4><p>习题一</p>子组件为什么不可以修改父组件传过来的Prop，如果修改了 Vue是如何监控并且给出警告的</h4>
+		<h4 style="color: red;"><p>习题一</p>子组件为什么不可以修改父组件传过来的Prop，如果修改了 Vue是如何监控并且给出警告的</h4>
 		info:{{info}}
 		<input :value="info.name" @input="handleChange"  />
 		<button @click="handleChangeInfo1">修改info1{{info1}}</button>
